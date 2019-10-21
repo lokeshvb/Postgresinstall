@@ -1,0 +1,190 @@
+Microsoft Windows [Version 10.0.17134.1069]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\blokesh>cd Documents
+
+C:\Users\blokesh\Documents>ls
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\blokesh\Documents>cd postgresql-12.0-1-windows-x64-binaries
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries>cd bin
+The system cannot find the path specified.
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries>cd pgsql
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql>cd bin
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>initdb -D c:\Users\Arthur\pgdata -U postgres -W -E UTF8 -A scram-sha-256
+The files belonging to this database system will be owned by user "blokesh".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "English_United States.1252".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+Enter new superuser password:
+Enter it again:
+
+creating directory c:/Users/Arthur/pgdata ... initdb: error: could not create directory "c:/Users/Arthur": Permission denied
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>initdb -D c:\Users\blokesh\postgressdata -U postgres -W -E UTF8 -A scram-sha-256
+The files belonging to this database system will be owned by user "blokesh".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "English_United States.1252".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+Enter new superuser password:
+Enter it again:
+
+fixing permissions on existing directory c:/Users/blokesh/postgressdata ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... windows
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Asia/Calcutta
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    pg_ctl -D ^"c^:^\Users^\blokesh^\postgressdata^" -l logfile start
+
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>pg_ctl -D ^"c^:^\Users^\blokesh^\postgressdata^"  start
+waiting for server to start....2019-10-21 15:24:21.312 IST [17092] LOG:  starting PostgreSQL 12.0, compiled by Visual C++ build 1914, 64-bit
+2019-10-21 15:24:21.332 IST [17092] LOG:  listening on IPv6 address "::1", port 5432
+2019-10-21 15:24:21.337 IST [17092] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-10-21 15:24:21.500 IST [16004] LOG:  database system was shut down at 2019-10-21 15:03:29 IST
+2019-10-21 15:24:22.008 IST [17092] LOG:  database system is ready to accept connections
+ done
+server started
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>psql
+Password for user b2019-10-21 15:35:05.407 IST [13004] FATAL:  password authentication failed for user "blokesh"
+2019-10-21 15:35:05.407 IST [13004] DETAIL:  Role "blokesh" does not exist.
+        Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 scram-sha-256"
+lokesh:
+2019-10-21 15:35:27.310 IST [15840] FATAL:  password authentication failed for user "blokesh"
+2019-10-21 15:35:27.310 IST [15840] DETAIL:  Role "blokesh" does not exist.
+        Connection matched pg_hba.conf line 82: "host    all             all             ::1/128                 scram-sha-256"
+psql: error: could not connect to server: FATAL:  password authentication failed for user "blokesh"
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>pg_ctl -D ^"c^:^\Users^\blokesh^\postgressdata^"  stop
+waiti2019-10-21 15:35:53.539 IST [17092] LOG:  received fast shutdown request
+ng for server to shut down....2019-10-21 15:35:53.544 IST [17092] LOG:  aborting any active transactions
+2019-10-21 15:35:53.566 IST [17092] LOG:  background worker "logical replication launcher" (PID 16624) exited with exit code 1
+2019-10-21 15:35:53.572 IST [232] LOG:  shutting down
+2019-10-21 15:35:53.620 IST [17092] LOG:  database system is shut down
+ done
+server stopped
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>initdb -D c:\Users\blokesh\postgressdata -U blokesh -W -E UTF8 -A scram-sha-256
+The files belonging to this database system will be owned by user "blokesh".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "English_United States.1252".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+Enter new superuser password:
+Enter it again:
+
+initdb: error: directory "c:/Users/blokesh/postgressdata" exists but is not empty
+If you want to create a new database system, either remove or empty
+the directory "c:/Users/blokesh/postgressdata" or run initdb
+with an argument other than "c:/Users/blokesh/postgressdata".
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>initdb -D c:\Users\blokesh\postgressdatablokesh -U blokesh -W -E UTF8 -A scram-sha-256
+The files belonging to this database system will be owned by user "blokesh".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "English_United States.1252".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+Enter new superuser password:
+Enter it again:
+
+creating directory c:/Users/blokesh/postgressdatablokesh ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... windows
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Asia/Calcutta
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    pg_ctl -D ^"c^:^\Users^\blokesh^\postgressdatablokesh^" -l logfile start
+
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>pg_ctl -D ^"c^:^\Users^\blokesh^\postgressdatablokesh^" start
+waiting for server to start....2019-10-21 15:37:08.981 IST [12508] LOG:  starting PostgreSQL 12.0, compiled by Visual C++ build 1914, 64-bit
+2019-10-21 15:37:08.988 IST [12508] LOG:  listening on IPv6 address "::1", port 5432
+2019-10-21 15:37:08.988 IST [12508] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-10-21 15:37:09.120 IST [14196] LOG:  database system was shut down at 2019-10-21 15:36:54 IST
+2019-10-21 15:37:09.569 IST [12508] LOG:  database system is ready to accept connections
+ done
+server started
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>psql
+Password for user blokesh:
+2019-10-21 15:37:29.003 IST [10236] FATAL:  database "blokesh" does not exist
+psql: error: could not connect to server: FATAL:  database "blokesh" does not exist
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>psql -U blokesh
+Password for user blokesh:
+2019-10-21 15:39:06.514 IST [16892] FATAL:  database "blokesh" does not exist
+psql: error: could not connect to server: FATAL:  database "blokesh" does not exist
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>createdb
+Password:
+
+C:\Users\blokesh\Documents\postgresql-12.0-1-windows-x64-binaries\pgsql\bin>psql
+Password for user blokesh:
+psql (12.0)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+blokesh=# select * from usertables;
+2019-10-21 15:46:47.745 IST [13924] ERROR:  relation "usertables" does not exist at character 15
+2019-10-21 15:46:47.745 IST [13924] STATEMENT:  select * from usertables;
+ERROR:  relation "usertables" does not exist
+LINE 1: select * from usertables;
+                      ^
+blokesh=#
+
+
+
+
+
+
+
+
